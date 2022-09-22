@@ -73,8 +73,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 We will use localStorage to manage cached data.
 
-### Used tecnologies
+### Used tecnologies/libraries
 
 - react-router-dom to manage product routing
 - ESLint altogether with Prettier to manage quality and code autoformtting
 - tailwindcss to manage styles [Guide](https://tailwindcss.com/docs/guides/create-react-app)
+
+## Improvements
+
+- Add Skeletons
