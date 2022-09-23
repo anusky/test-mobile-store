@@ -1,8 +1,8 @@
 import {
-  API_URL,
   DATA_ORIGIN_TYPES,
   EXPIRATION_TIME_LIMIT,
   LOCAL_STORAGE_TYPES,
+  PAGE_STRUCTURE,
 } from "./constants";
 
 const getDataExpirationDate = () =>
@@ -27,7 +27,7 @@ const setDataOrigin = (origin) =>
 export const getAlProducts = async () => {
   const expires = getDataExpirationDate();
   if (!expires || expires < Date.now() - EXPIRATION_TIME_LIMIT) {
-    const productData = await fetch(API_URL)
+    const productData = await fetch(PAGE_STRUCTURE.home.clientApiLoader)
       .then((res) => res.json())
       .then((res) => {
         setProductData(res);
@@ -45,4 +45,15 @@ export const getAlProducts = async () => {
 
     return productData;
   }
+};
+
+const getProductByIdUrl = (id) =>
+  PAGE_STRUCTURE.product.clientApiLoader.replace(":id", id);
+
+export const getProductById = async (id) => {
+  return await fetch(getProductByIdUrl(id))
+    .then((res) => res.json())
+    .then((res) => {
+      return res;
+    });
 };

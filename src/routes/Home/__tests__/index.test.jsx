@@ -1,7 +1,20 @@
-import { render, screen } from "@testing-library/react";
+import { act } from "react-dom/test-utils";
+import { render, screen } from "src/test-config/test-utils";
 import Home from "..";
 
-test("Home renders properly", () => {
-  render(<Home />);
-  expect(screen.getByTestId("home-page-component")).toBeInTheDocument();
+describe("Home coverage", () => {
+  test("Home renders properly", async () => {
+    render(<Home />);
+    expect(
+      await screen.findByTestId("home-page-component")
+    ).toBeInTheDocument();
+  });
+
+  test("matches snapshot", async () => {
+    let container;
+    await act(() => {
+      container = render(<Home />);
+    });
+    expect(container.asFragment()).toMatchSnapshot();
+  });
 });

@@ -1,15 +1,41 @@
 import { render } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const AllTheProviders = ({ children }) => {
-  return <BrowserRouter>{children}</BrowserRouter>;
+import productInfo from "./__fixtures__/product.json";
+import productList from "./__fixtures__/productList.json";
+
+const customRender = (ui, options = {}) => {
+  const { routerInitialIndex = 0 } = options;
+
+  const AllTheProviders = ({ children }) => {
+    const routes = [
+      {
+        path: "/",
+        element: children,
+        loader: () => productList,
+      },
+      {
+        path: "/:productId",
+        element: children,
+        id: "product-page",
+        loader: () => productInfo,
+      },
+    ];
+
+    const router = createMemoryRouter(routes, {
+      initialEntries: ["/", "/123"],
+      initialIndex: routerInitialIndex,
+    });
+    return <RouterProvider router={router}>{children}</RouterProvider>;
+  };
+
+  AllTheProviders.propTypes = {
+    children: PropTypes.node.isRequired,
+  };
+
+  return render(ui, { wrapper: AllTheProviders, ...options });
 };
-AllTheProviders.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-const customRender = (ui, options) =>
-  render(ui, { wrapper: AllTheProviders, ...options });
 
 export * from "@testing-library/react";
 export { customRender as render };

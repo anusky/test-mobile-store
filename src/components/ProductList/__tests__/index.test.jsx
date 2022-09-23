@@ -1,30 +1,48 @@
-import { render, screen } from "src/test-config/test-utils";
+import { render, screen, waitFor } from "src/test-config/test-utils";
 import ProductList from "..";
-import productList from "./__fixtures__/productList.json";
+import productList from "src/test-config/__fixtures__/productList.json";
+import { act } from "react-dom/test-utils";
 
-test("ProductList renders properly", () => {
-  render(<ProductList list={productList} />);
-  expect(screen.getByTestId("productlist-component")).toBeInTheDocument();
-});
+describe("ProductList coverage", () => {
+  it("ProductList renders properly", async () => {
+    render(<ProductList list={productList} />);
+    expect(
+      await screen.findByTestId("productlist-component")
+    ).toBeInTheDocument();
+  });
 
-test("ProductList should render 3 items from fixtures", () => {
-  render(<ProductList list={productList} />);
-  expect(screen.getAllByRole("link").length).toBe(3);
-});
+  it("matches snapshot", async () => {
+    let container;
+    await act(() => {
+      container = render(<ProductList list={productList} />);
+    });
+    expect(container.asFragment()).toMatchSnapshot();
+  });
 
-test("ProductList product link should contain `brand, model` format", () => {
-  // Check made with first fixture product element
-  render(<ProductList list={productList} />);
-  expect(
-    screen.getByRole("link", { name: /Acer, Iconia Talk S/i })
-  ).toBeInTheDocument();
-});
+  it("ProductList should render 3 items from fixtures", async () => {
+    render(<ProductList list={productList} />);
 
-test("ProductList product link should point to '/:id' page", () => {
-  // Check made with first fixture product element
-  render(<ProductList list={productList} />);
-  expect(screen.getAllByRole("link")[0]).toHaveAttribute(
-    "href",
-    "/ZmGrkLRPXOTpxsU4jjAcv"
-  );
+    await waitFor(() => {
+      const totalLinks = screen.getAllByRole("link").length;
+      expect(totalLinks).toBe(3);
+    });
+  });
+
+  it("ProductList product link should contain `brand, model` format", async () => {
+    // Check made with first fixture product element
+    render(<ProductList list={productList} />);
+    expect(
+      await screen.findByRole("link", { name: /Acer, Iconia Talk S/i })
+    ).toBeInTheDocument();
+  });
+
+  it("ProductList product link should point to '/:id' page", async () => {
+    // Check made with first fixture product element
+    render(<ProductList list={productList} />);
+
+    await waitFor(() => {
+      const links = screen.getAllByRole("link")[0];
+      expect(links).toHaveAttribute("href", "/ZmGrkLRPXOTpxsU4jjAcv");
+    });
+  });
 });

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductList coverage matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 justify-center"
+    data-testid="productlist-component"
+  >
+    <a
+      class="grid gap-y-4 gap-x-4 justify-center hover:bg-slate-50 rounded-lg py-4 px-3"
+      href="/ZmGrkLRPXOTpxsU4jjAcv"
+    >
+      <div
+        class="object-cover"
+      >
+        <img
+          alt="Acer, Iconia Talk S"
+          src="https://front-test-api.herokuapp.com/images/ZmGrkLRPXOTpxsU4jjAcv.jpg"
+        />
+      </div>
+      <div
+        class="grid"
+      >
+        <p>
+          Acer, Iconia Talk S
+        </p>
+        <p
+          class="font-bold"
+        >
+          170€
+        </p>
+      </div>
+    </a>
+    <a
+      class="grid gap-y-4 gap-x-4 justify-center hover:bg-slate-50 rounded-lg py-4 px-3"
+      href="/cGjFJlmqNPIwU59AOcY8H"
+    >
+      <div
+        class="object-cover"
+      >
+        <img
+          alt="Acer, Liquid Z6 Plus"
+          src="https://front-test-api.herokuapp.com/images/cGjFJlmqNPIwU59AOcY8H.jpg"
+        />
+      </div>
+      <div
+        class="grid"
+      >
+        <p>
+          Acer, Liquid Z6 Plus
+        </p>
+        <p
+          class="font-bold"
+        >
+          250€
+        </p>
+      </div>
+    </a>
+    <a
+      class="grid gap-y-4 gap-x-4 justify-center hover:bg-slate-50 rounded-lg py-4 px-3"
+      href="/8hKbH2UHPM_944nRHYN1n"
+    >
+      <div
+        class="object-cover"
+      >
+        <img
+          alt="Acer, Liquid Z6"
+          src="https://front-test-api.herokuapp.com/images/8hKbH2UHPM_944nRHYN1n.jpg"
+        />
+      </div>
+      <div
+        class="grid"
+      >
+        <p>
+          Acer, Liquid Z6
+        </p>
+        <p
+          class="font-bold"
+        >
+          120€
+        </p>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
