@@ -8,10 +8,12 @@ import { PAGE_STRUCTURE } from "./utils/constants";
 
 import { getAlProducts } from "./utils/productManagement";
 
+/* istanbul ignore next */
 export const appLoader = async () => {
   return await getAlProducts();
 };
 
+/* istanbul ignore next */
 export const appHandle = {
   crumb: () => ({ url: "/", content: <HomeIcon /> }),
 };
@@ -22,7 +24,7 @@ function App() {
   return (
     <ProductContextProvider value={{ list: productInfo }}>
       <Header />
-      <div className="App" data-testid="app-container-component">
+      <div className="py-8" data-testid="app-container-component">
         <Outlet />
       </div>
     </ProductContextProvider>

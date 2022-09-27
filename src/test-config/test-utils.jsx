@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import productInfo from "./__fixtures__/product.json";
 import productList from "./__fixtures__/productList.json";
+import { ProductContextProvider } from "src/context/productContext";
 
 const customRender = (ui, options = {}) => {
   const { routerInitialIndex = 0 } = options;
@@ -35,7 +36,17 @@ const customRender = (ui, options = {}) => {
       initialEntries: ["/", "/123"],
       initialIndex: routerInitialIndex,
     });
-    return <RouterProvider router={router}>{children}</RouterProvider>;
+    return (
+      <RouterProvider router={router}>
+        <ProductContextProvider
+          value={{
+            list: productList,
+          }}
+        >
+          {children}
+        </ProductContextProvider>
+      </RouterProvider>
+    );
   };
 
   AllTheProviders.propTypes = {

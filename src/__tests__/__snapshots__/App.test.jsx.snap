@@ -28,7 +28,7 @@ exports[`App coverage matches snapshot 1`] = `
     <div />
   </header>
   <div
-    class="App"
+    class="py-8"
     data-testid="app-container-component"
   />
 </DocumentFragment>

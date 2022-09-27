@@ -37,6 +37,12 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/utils/productManagement.js",
+      "<rootDir>/src/test-config/*"
+    ]
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.11",
     "eslint": "^8.23.1",
