@@ -14,12 +14,20 @@ const customRender = (ui, options = {}) => {
         path: "/",
         element: children,
         loader: () => productList,
-      },
-      {
-        path: "/:productId",
-        element: children,
-        id: "product-page",
-        loader: () => productInfo,
+        handle: {
+          crumb: () => ({ url: "/", content: "home route" }),
+        },
+        children: [
+          {
+            path: "/:productId",
+            element: children,
+            id: "product-page",
+            loader: () => productInfo,
+            handle: {
+              crumb: () => ({ url: "/", content: "product route" }),
+            },
+          },
+        ],
       },
     ];
 

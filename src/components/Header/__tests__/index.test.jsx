@@ -9,7 +9,7 @@ describe("Header coverage", () => {
     expect(await screen.findByRole("banner")).toBeInTheDocument();
   });
 
-  xit("matches snapshot", async () => {
+  it("matches snapshot", async () => {
     let container;
     await act(() => {
       container = render(<Header />);

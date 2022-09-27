@@ -6,7 +6,10 @@ describe("App coverage", () => {
   it("renders learn react link", async () => {
     render(<App />);
 
-    expect(await screen.findByText(/learn react/i)).toBeInTheDocument();
+    expect(await screen.findByRole("banner")).toBeInTheDocument();
+    expect(
+      await screen.findByTestId("app-container-component")
+    ).toBeInTheDocument();
   });
 
   it("matches snapshot", async () => {

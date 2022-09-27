@@ -5,7 +5,9 @@ import { getProductById } from "src/utils/productManagement";
 export const productLoader = ({ params }) => {
   return getProductById(params.productId);
 };
-
+export const productHandle = {
+  crumb: (data) => ({ content: `${data.brand}, ${data.model}` }),
+};
 const Product = () => {
   const productInfo = useRouteLoaderData(PAGE_STRUCTURE.product.clientPageId);
 

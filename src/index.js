@@ -5,12 +5,13 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import "./index.css";
-import App, { appLoader } from "./App";
+
+import App, { appHandle, appLoader } from "./App";
+import Product, { productHandle, productLoader } from "./routes/Product";
+import Home from "./routes/Home";
+
 import reportWebVitals from "./reportWebVitals";
 
-import Home from "./routes/Home";
-import Product, { productLoader } from "./routes/Product";
 import { PAGE_STRUCTURE } from "./utils/constants";
 
 const router = createBrowserRouter(
@@ -20,9 +21,11 @@ const router = createBrowserRouter(
       element={<App />}
       loader={appLoader}
       id={PAGE_STRUCTURE.home.clientPageId}
+      handle={appHandle}
     >
       <Route index element={<Home />} />
       <Route
+        handle={productHandle}
         path={PAGE_STRUCTURE.product.clientPath}
         element={<Product />}
         loader={productLoader}

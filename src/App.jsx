@@ -1,6 +1,8 @@
 import { Outlet, useRouteLoaderData } from "react-router-dom";
 
 import "./App.css";
+import Header from "./components/Header";
+import HomeIcon from "./components/Icons/HomeIcon";
 import { ProductContextProvider } from "./context/productContext";
 import { PAGE_STRUCTURE } from "./utils/constants";
 
@@ -10,26 +12,17 @@ export const appLoader = async () => {
   return await getAlProducts();
 };
 
+export const appHandle = {
+  crumb: () => ({ url: "/", content: <HomeIcon /> }),
+};
+
 function App() {
   const productInfo = useRouteLoaderData(PAGE_STRUCTURE.home.clientPageId);
 
   return (
     <ProductContextProvider value={{ list: productInfo }}>
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-
+      <Header />
+      <div className="App" data-testid="app-container-component">
         <Outlet />
       </div>
     </ProductContextProvider>

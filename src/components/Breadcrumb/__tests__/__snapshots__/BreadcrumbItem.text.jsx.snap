@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreadcrumbItem coverage snapshot for BreadcrumbItem isLast is true 1`] = `
+<DocumentFragment>
+  <li>
+    <span
+      class="breadcrumb-item breadcrumb-item--last"
+    >
+      test text
+    </span>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`BreadcrumbItem coverage snapshot for BreadcrumbItem when isLast is false 1`] = `
+<DocumentFragment>
+  <li>
+    <a
+      href="/"
+    >
+      test text
+    </a>
+  </li>
+  <li>
+    <svg
+      class="w-5 h-5"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </li>
+</DocumentFragment>
+`;

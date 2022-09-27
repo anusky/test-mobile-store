@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App coverage matches snapshot 1`] = `
+exports[`Header coverage matches snapshot 1`] = `
 <DocumentFragment>
   <header
     class="grid gap-y-2 min-h-24 bg-slate-900 text-slate-100 p-4 lg:p-6"
@@ -27,9 +27,5 @@ exports[`App coverage matches snapshot 1`] = `
     </div>
     <div />
   </header>
-  <div
-    class="App"
-    data-testid="app-container-component"
-  />
 </DocumentFragment>
 `;
