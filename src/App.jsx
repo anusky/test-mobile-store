@@ -1,16 +1,19 @@
-import { Outlet, useRouteLoaderData } from "react-router-dom";
+import { json, Outlet, useRouteLoaderData } from "react-router-dom";
 
 import "./App.css";
 import Header from "./components/Header";
 import HomeIcon from "./components/Icons/HomeIcon";
 import { ProductContextProvider } from "./context/productContext";
+import { getCart } from "./utils/cartManagement";
 import { PAGE_STRUCTURE } from "./utils/constants";
 
 import { getAlProducts } from "./utils/productManagement";
 
 /* istanbul ignore next */
 export const appLoader = async () => {
-  return await getAlProducts();
+  const productList = await getAlProducts();
+  const cart = getCart();
+  return json({ productList, cart }, { status: 200 });
 };
 
 /* istanbul ignore next */
@@ -19,12 +22,14 @@ export const appHandle = {
 };
 
 function App() {
-  const productInfo = useRouteLoaderData(PAGE_STRUCTURE.home.clientPageId);
+  const { productList, cart } = useRouteLoaderData(
+    PAGE_STRUCTURE.home.clientPageId
+  );
 
   return (
-    <ProductContextProvider value={{ list: productInfo }}>
+    <ProductContextProvider value={{ list: productList, cart }}>
       <Header />
-      <div className="py-8" data-testid="app-container-component">
+      <div className="my-24 lg:my-32" data-testid="app-container-component">
         <Outlet />
       </div>
     </ProductContextProvider>

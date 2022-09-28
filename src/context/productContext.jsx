@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 export const ProductContext = createContext({
   list: [],
+  cart: [],
 });
 
 export const ProductContextProvider = ({ children, value }) => {
@@ -18,6 +19,7 @@ ProductContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
   value: PropTypes.shape({
     list: PropTypes.array,
+    cart: PropTypes.array,
   }),
 };
 

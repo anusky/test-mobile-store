@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 
 import productInfo from "./__fixtures__/product.json";
 import productList from "./__fixtures__/productList.json";
+import cart from "./__fixtures__/cart.json";
 import { ProductContextProvider } from "src/context/productContext";
+import { PAGE_STRUCTURE } from "src/utils/constants";
 
 const customRender = (ui, options = {}) => {
   const { routerInitialIndex = 0 } = options;
@@ -14,7 +16,11 @@ const customRender = (ui, options = {}) => {
       {
         path: "/",
         element: children,
-        loader: () => productList,
+        id: PAGE_STRUCTURE.home.clientPageId,
+        loader: () => ({
+          productList,
+          cart,
+        }),
         handle: {
           crumb: () => ({ url: "/", content: "home route" }),
         },
@@ -22,7 +28,7 @@ const customRender = (ui, options = {}) => {
           {
             path: "/:productId",
             element: children,
-            id: "product-page",
+            id: PAGE_STRUCTURE.product.clientPageId,
             loader: () => productInfo,
             handle: {
               crumb: () => ({ url: "/", content: "product route" }),
@@ -41,6 +47,7 @@ const customRender = (ui, options = {}) => {
         <ProductContextProvider
           value={{
             list: productList,
+            cart: cart,
           }}
         >
           {children}

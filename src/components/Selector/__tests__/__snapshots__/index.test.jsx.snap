@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Selector coverage matches snapshot  1`] = `
+<DocumentFragment>
+  <div
+    class="inline-flex gap-x-4 relative"
+  >
+    <label>
+      Selector Test
+    </label>
+    <select
+      name="selector-name"
+    >
+      <option
+        value="123"
+      >
+        test name
+      </option>
+    </select>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectorOption coverage matches snapshot  1`] = `
+<DocumentFragment>
+  <option
+    value="123"
+  >
+    test name
+  </option>
+</DocumentFragment>
+`;

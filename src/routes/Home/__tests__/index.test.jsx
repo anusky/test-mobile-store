@@ -1,6 +1,5 @@
-import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
-import { render, screen, waitFor } from "src/test-config/test-utils";
+import { render, screen } from "src/test-config/test-utils";
 import Home from "..";
 
 describe("Home coverage", () => {

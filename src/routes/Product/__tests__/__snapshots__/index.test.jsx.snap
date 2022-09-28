@@ -3,9 +3,191 @@
 exports[`Product page coverage matches snapshot 1`] = `
 <DocumentFragment>
   <div
+    class="container mx-auto grid lg:grid-cols-2 py-8 px-8"
     data-testid="product-page-component"
   >
-    Product Id: Acer
+    <div>
+      <img
+        alt="Acer, Iconia Talk S"
+        class="mx-auto object-contain"
+        height="200"
+        src="https://front-test-api.herokuapp.com/images/ZmGrkLRPXOTpxsU4jjAcv.jpg"
+        width="150"
+      />
+    </div>
+    <div
+      class="grid gap-y-4"
+    >
+      <h2>
+        General Description
+      </h2>
+      <ul
+        class="product-information grid"
+      >
+        <li>
+          <h3>
+            Brand:
+          </h3>
+           
+          <span>
+            Acer
+          </span>
+        </li>
+        <li>
+          <h3>
+            Model:
+          </h3>
+           
+          <span>
+            Iconia Talk S
+          </span>
+        </li>
+        <li>
+          <h3>
+            Price:
+          </h3>
+          <span>
+            170€
+          </span>
+        </li>
+        <li>
+          <h3>
+            CPU:
+          </h3>
+           
+          <span>
+            Quad-core 1.3 GHz Cortex-A53
+          </span>
+        </li>
+        <li>
+          <h3>
+            RAM:
+          </h3>
+           
+          <span>
+            2 GB RAM
+          </span>
+        </li>
+        <li>
+          <h3>
+            OS:
+          </h3>
+           
+          <span>
+            Android 6.0 (Marshmallow)
+          </span>
+        </li>
+        <li>
+          <h3>
+            Display Res:
+          </h3>
+           
+          <span>
+            7.0 inches (~69.8% screen-to-body ratio)
+          </span>
+        </li>
+        <li>
+          <h3>
+            Battery:
+          </h3>
+           
+          <span>
+            Non-removable Li-Ion 3400 mAh battery (12.92 Wh)
+          </span>
+        </li>
+        <li>
+          <h3>
+            Cameras:
+          </h3>
+          <div
+            class="grid px-2"
+          >
+            <span>
+              Primary: 13 MP,autofocus
+            </span>
+            <span>
+              Secondary: 2 MP,720p
+            </span>
+          </div>
+        </li>
+        <li>
+          <h3>
+            Dimentions:
+          </h3>
+           
+          <span>
+            191.7 x 101 x 9.4 mm (7.55 x 3.98 x 0.37 in)
+          </span>
+        </li>
+        <li>
+          <h3>
+            Weight:
+          </h3>
+           
+          <span>
+            260 grams
+          </span>
+        </li>
+      </ul>
+      <form
+        action="/ZmGrkLRPXOTpxsU4jjAcv"
+        class="grid gap-y-4"
+        method="post"
+      >
+        <h2>
+          Make your selections:
+        </h2>
+        <input
+          hidden=""
+          name="id"
+          type="text"
+          value="ZmGrkLRPXOTpxsU4jjAcv"
+        />
+        <div
+          class="inline-flex gap-x-4 relative"
+        >
+          <label>
+            Select a color:
+          </label>
+          <select
+            name="colorCode"
+          >
+            <option
+              value="1000"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div
+          class="inline-flex gap-x-4 relative"
+        >
+          <label>
+            Select a storage:
+          </label>
+          <select
+            name="storageCode"
+          >
+            <option
+              value="2000"
+            >
+              16 GB
+            </option>
+            <option
+              value="2001"
+            >
+              32 GB
+            </option>
+          </select>
+        </div>
+        <button
+          class="rounded-full px-4 bg-gradient-to-r from-indigo-900 to-slate-900 text-white w-fit py-2"
+          type="submit"
+        >
+          Add to cart
+        </button>
+      </form>
+    </div>
   </div>
 </DocumentFragment>
 `;

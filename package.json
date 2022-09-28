@@ -16,8 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test:coverage": "react-scripts test --coverage"
   },
   "eslintConfig": {
     "extends": [
@@ -40,7 +40,9 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/utils/productManagement.js",
-      "<rootDir>/src/test-config/*"
+      "<rootDir>/src/utils/cartManagement.js",
+      "<rootDir>/src/test-config/*",
+      "<rootDir>/src/index.js"
     ]
   },
   "devDependencies": {
