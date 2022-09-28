@@ -18,6 +18,7 @@ import Home from "./routes/Home";
 import reportWebVitals from "./reportWebVitals";
 
 import { PAGE_STRUCTURE } from "./utils/constants";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const ErrorLoader = ({ message }) => {
   return <div className="">{message}</div>;
@@ -34,13 +35,9 @@ const router = createBrowserRouter(
       loader={appLoader}
       id={PAGE_STRUCTURE.home.clientPageId}
       handle={appHandle}
-      errorElement={<ErrorLoader message="App" />}
+      errorElement={<ErrorBoundary />}
     >
-      <Route
-        index
-        element={<Home />}
-        errorElement={<ErrorLoader message="Hime" />}
-      />
+      <Route index element={<Home />} errorElement={<ErrorBoundary />} />
       <Route
         handle={productHandle}
         path={PAGE_STRUCTURE.product.clientPath}
@@ -48,7 +45,7 @@ const router = createBrowserRouter(
         loader={productLoader}
         action={productAction}
         id={PAGE_STRUCTURE.product.clientPageId}
-        errorElement={<ErrorLoader message="Product" />}
+        errorElement={<ErrorBoundary />}
       />
     </Route>
   )

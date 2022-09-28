@@ -11,9 +11,13 @@ import { getAlProducts } from "./utils/productManagement";
 
 /* istanbul ignore next */
 export const appLoader = async () => {
-  const productList = await getAlProducts();
+  const prodRes = await getAlProducts();
   const cart = getCart();
-  return json({ productList, cart }, { status: 200 });
+
+  if (prodRes?.status) {
+    throw new Response("Api error", { status: prodRes?.status });
+  }
+  return json({ productList: prodRes, cart }, { status: 200 });
 };
 
 /* istanbul ignore next */

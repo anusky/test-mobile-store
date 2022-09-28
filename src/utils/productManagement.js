@@ -66,7 +66,10 @@ export const getAlProducts = async () => {
 
         setDataOrigin(DATA_ORIGIN_TYPES.api);
         return res;
-      });
+      })
+      .catch(() => ({
+        status: 500,
+      }));
 
     return productData;
   } else {
@@ -97,6 +100,12 @@ export const getProductById = async (id) => {
   return await fetch(getProductByIdUrl(id))
     .then((res) => res.json())
     .then((res) => {
+      if (res.code === 0) {
+        return { status: 404 };
+      }
       return res;
-    });
+    })
+    .catch(() => ({
+      status: 400,
+    }));
 };

@@ -1,4 +1,9 @@
 {
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "env": {
     "browser": true,
     "es2021": true,
@@ -22,7 +27,7 @@
   "rules": {
     "prettier/prettier": "error",
     "no-unused-vars": "warn",
-    "no-console": "off",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
     "func-names": "off",
     "no-process-exit": "off",
     "object-shorthand": "off",

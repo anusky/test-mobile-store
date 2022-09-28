@@ -8,7 +8,12 @@ import Selector from "src/components/Selector";
 
 /* istanbul ignore next */
 export const productLoader = async ({ params }) => {
-  return getProductById(params.productId);
+  const res = await getProductById(params.productId);
+
+  if (res?.status >= 400) {
+    throw new Response("Not Found", { status: res.status });
+  }
+  return res;
 };
 
 /* istanbul ignore next */
@@ -25,7 +30,11 @@ export const productAction = async ({ request }) => {
 
 /* istanbul ignore next */
 export const productHandle = {
-  crumb: (data) => ({ content: `${data.brand}, ${data.model}` }),
+  crumb: (data) => {
+    return {
+      content: isEmpty(data) ? "Not Found" : `${data?.brand}, ${data?.model}`,
+    };
+  },
 };
 
 const Product = () => {
