@@ -81,6 +81,7 @@ exports[`ProductList coverage matches snapshot 1`] = `
         </p>
       </div>
     </a>
+    <div />
   </div>
 </DocumentFragment>
 `;

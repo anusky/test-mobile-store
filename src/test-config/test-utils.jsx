@@ -1,3 +1,5 @@
+import "./__mocks__/intersectionObserverMock";
+
 import { render } from "@testing-library/react";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import PropTypes from "prop-types";

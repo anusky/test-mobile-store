@@ -42,7 +42,9 @@ exports[`Home coverage matches snapshot 1`] = `
     <div
       class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 justify-center"
       data-testid="productlist-component"
-    />
+    >
+      <div />
+    </div>
   </div>
 </DocumentFragment>
 `;
