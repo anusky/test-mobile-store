@@ -52,3 +52,4 @@ We will use localStorage to manage cached data.
 - Cart management
   - Add cart page/component to show the content of it
   - Add expiration time for cart
+- Add JSDocs to create automated documentation pages
